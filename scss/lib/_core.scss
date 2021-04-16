@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,400;0,700;1,400;1,700&family=Kosugi&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 html,
 body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
     font-family: $font-family-base;
     color: $text;
     background-color: $background;
@@ -33,28 +40,30 @@ h1,h2,h3,h4,h5,h6 {
   #globalheader-container に背景色や文字色を指定することでiframeの中にも色が反映されます。
 */
 #globalheader-container {
-    background-color: $text;
+    background-color: darken($bg-header-footer, 30%);;
     color: $background;
 }
 
 /* container */
-#container,
+#container {
+    top: 0;
+    width: 100%;
+}
 #footer {
-    padding-left: 10px;
-    padding-right: 10px;
-    @media #{$mq-sm} {
-        width: 720px;
-        margin: auto;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    @media #{$mq-md} {
-        width: 940px;
-    }
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    background-color: $bg-header-footer;
+    color: $background;
 }
 
 /* 2カラムレイアウト */
+#content {
+    margin-top: 1em;
+}
 #content-inner {
+    width: 80%;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,80 +73,22 @@ h1,h2,h3,h4,h5,h6 {
 }
 #wrapper {
     @media #{$mq-sm} {
-        width: 480px;
-    }
-    @media #{$mq-md} {
-        width: 600px;
+        width: 60%;
     }
 }
 #box2 {
     @media #{$mq-sm} {
-        width: 200px;
-    }
-    @media #{$mq-md} {
-        width: 300px;
+        width: 30%
     }
 }
-
-/* 下記のスタイルを適用するとテーマを1カラムレイアウトにできます。
-利用するにはコメントアウトを解除してください。
-（2カラムレイアウトの場合はコメントアウト全体が不要です）
-
-#content-inner {
-    flex-direction: column;
-    align-items: center;
-}
-#wrapper {
-    @media #{$mq-sm} {
-        width: 100%;
-    }
-    @media #{$mq-md} {
-        max-width: 720px;
-    }
-}
-#box2 {
-    width: 100%;
-    @media #{$mq-sm} {
-        width: 100%;
-    }
-    @media #{$mq-md} {
-        width: 100%;
-    }
-}
-
-#box2-inner {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    @media #{$mq-sm} {
-        margin-left: -20px;
-        flex-direction: row;
-    }
-    @media #{$mq-md} {
-        margin-left: -30px;
-    }
-}
-.hatena-module {
-    width: 100%;
-    @media #{$mq-sm} {
-        width: 33.3333%;
-    }
-    @media #{$mq-md} {
-        padding-left: 30px;
-    }
-}
-
----- END 1カラム */
 
 /* ヘッダ */
 #blog-title {
-    margin: 2em 0;
+    width: 100%;
+    margin: auto;
+    padding: 1em;
     text-align: center;
-    @media #{$mq-sm} {
-        margin: 3em 0;
-        text-align: left;
-    }
+    background-color: $bg-header-footer;
 }
 #title {
     margin: 0;
@@ -146,10 +97,11 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 1.7rem;
     }
     a {
-        color: $text;
+        color: $background;
     }
 }
 #blog-description {
+    color: $background;
     font-weight: normal;
     font-size: .8rem;
     margin: 1em 0 0;
@@ -177,12 +129,23 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* パンくず（カテゴリー、記事ページで表示されます） */
+#top-box {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
 .breadcrumb {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-top: 1px solid $text;
+    border-bottom: 1px solid $text;
     font-size: .9rem;
 }
 
 /* entry */
 .entry {
+    border: 1px solid $border;
     position: relative;
     margin-bottom: 4em;
 }
@@ -193,6 +156,7 @@ h1,h2,h3,h4,h5,h6 {
     position: relative;
 }
 .date {
+    padding: 1em;
     margin-bottom: .5em;
     font-size: .9rem;
     a {
@@ -205,28 +169,48 @@ h1,h2,h3,h4,h5,h6 {
 }
 .entry-title {
     margin: 0 0 .3em;
+    padding: 1em;
     font-size: 1.5rem;
     @media #{$mq-md} {
         font-size: 1.6rem;
     }
+    a, a:hover, a:active {
+        color: $text;
+    }
 }
 .categories {
+    padding: 1em;
     margin: .5em 0;
     font-size: .9rem;
     a {
         margin-right: .5em;
+        color: $text;
+        padding: 0.5em;
+        border: 1px solid $border;
+        :hover, :active {
+            color: $text;
+        }
     }
 }
 
 /* 「編集する」ボタン */
 .entry-header-menu {
+    padding: 1em;
     position: absolute;
     top: 0;
     right: 0;
+    border-left: 1px solid $border;
+    border-bottom: 1px solid $border;
+    a {
+        text-decoration: none;
+        color: $text;
+    }
 }
 
 /* 記事内の書式 */
 .entry-content {
+    padding: 1em;
+    border-bottom: 1px solid $border;
     img,
     video {
         max-width: 100%;
@@ -321,7 +305,7 @@ h1,h2,h3,h4,h5,h6 {
         white-space: pre-wrap;
         text-overflow: ellipsis;
         line-height: 1.3;
-        font-size: .8rem;
+        font-size: 1em;
         padding: 10px;
         & > code {
             margin: 0;
@@ -333,7 +317,7 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
     code {
-        font-size: 90%;
+        font-size: 1em;
         margin: 0 2px;
         padding: 0px 5px;
         background-color: $bg-light;
@@ -355,6 +339,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* 記事下 */
 .entry-footer {
+    padding: 1em;
     .social-buttons {
         margin-bottom: 1em;
     }
@@ -372,7 +357,7 @@ h1,h2,h3,h4,h5,h6 {
     margin: 1em 0;
     .comment {
         list-style: none;
-        margin: 0 0 15px 0;
+        margin: 1em 0 15px 0;
         padding: 0;
         line-height: 1.7;
         font-size: .85rem;
@@ -381,12 +366,11 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
     .entry-comment {
-        padding: 10px 0 10px 60px;
-        border-bottom: 1px solid $border;
+        margin-left: 5px;
+        padding: 10px 0 10px 65px;
+        margin-bottom: 0.5em;
+        border-left: 3px solid $border;
         position: relative;
-        &:first-child {
-            border-top: 1px solid $border;
-        }
     }
     .read-more-comments {
         padding: 10px 0;
@@ -394,7 +378,7 @@ h1,h2,h3,h4,h5,h6 {
     .hatena-id-icon {
         position: absolute;
         top: 10px;
-        left: 0;
+        left: 10px;
         width: 50px !important;
         height: 50px !important;
         border-radius: 3px;
@@ -431,8 +415,18 @@ h1,h2,h3,h4,h5,h6 {
 
 .pager {
     margin: 2em 0;
+    padding: 1em;
+    color: $text;
     display: flex;
+    border: 1px solid $border;
     justify-content: space-between;
+    a {
+        text-decoration: none;
+        color: $text;
+        :hover {
+            border-bottom: 1px solid $text;
+        }
+    }
 }
 
 /* サイドバーモジュール */
@@ -475,6 +469,18 @@ h1,h2,h3,h4,h5,h6 {
             margin-top: 0;
         }
     }
+    .hatena-follow-button {
+        background-color: $link;
+        background-image: none;
+        padding: 0.5em;
+        border: none !important;
+        height: unset !important;
+        min-width: unset;
+        border-radius: 2px;
+        * {
+            color: $background;
+        }
+    }
 }
 
 /* urllist module */
@@ -509,8 +515,9 @@ h1,h2,h3,h4,h5,h6 {
 /* Search module */
 .hatena-module-search-box {
     .search-form {
-        border: 1px solid $border;
-        border-radius: 3px;
+        border: none;
+        border-bottom: 2px solid $border;
+        border-radius: 0;
         width: 100%;
         box-sizing: border-box;
         display: flex;
@@ -529,7 +536,7 @@ h1,h2,h3,h4,h5,h6 {
         width: 24px;
         height: 24px;
         margin-right: 5px;
-        background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Esearch%3C/title%3E%3Cpath d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3Crect class='a' width='20' height='20'/%3E%3C/svg%3E") no-repeat center;
+        background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Esearch%3C/title%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Crect class='a' width='20' height='20'/%3E%3C/svg%3E") no-repeat center;
         background-size: 20px 20px;
         border: none;
         outline: none;
@@ -567,7 +574,13 @@ h1,h2,h3,h4,h5,h6 {
         margin-bottom: 3em;
         margin-left: auto;
         margin-right: auto;
+        padding: 1em;
         line-height: 1.3;
+        border: 1px solid $border;
+    }
+    .archive-entry-body {
+        border-top: 1px solid $border;
+        padding-top: 0.5em;
     }
     .entry-title {
         margin: .3em auto;
@@ -594,16 +607,16 @@ h1,h2,h3,h4,h5,h6 {
     }
 }
 
-
 /* footer */
 #footer {
     margin-top: 2em;
+    padding-top: 2rem;
     padding-bottom: 2rem;
     text-align: center;
-    font-size: .8rem;
-    color: $text-light;
+    font-size: 1em;
+    color: $background;
     a {
-        color: $text-light;
+        color: $background;
     }
     p {
         margin: .5em auto;

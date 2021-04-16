@@ -11,4 +11,4 @@ node_modules/
 *.css.map
 
 # Ignore build
-build/
+*.css

@@ -1,0 +1,19 @@
+@charset "utf-8";
+/*
+  Theme: Path
+  Author: Piano Nekomiya
+  Responsive: yes
+  Description:
+    テーマです。
+    Based Boilerplate(https://github.com/hatena/Hatena-Blog-Theme-Boilerplate)
+  Released under the BSD-3-Clause License.
+*/
+
+// import normalize
+@import url("https://cdn.jsdelivr.net/npm/reseter.css");
+
+// import variable
+@import "lib/_variable";
+
+// import core
+@import "lib/_core";

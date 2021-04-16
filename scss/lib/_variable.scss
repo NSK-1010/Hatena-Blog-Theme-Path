@@ -1,20 +1,25 @@
 // Variables
 
+// Font
+$font-family-base: "Jost", "Kosugi", sans-serif;
+$font-family-monospace: "JetBrains Mono", "Kosugi", monospace, sans-serif;
+
 // Background color
 $background: #fff;
 $bg-light: #f5f5f5;
+$bg-header-footer: #78909C;
 
 // text color
-$text: #454545;
-$text-light: #999;
-$text-header: #333;
+$text: #424242;
+$text-light: #bdbdbd;
+$text-header: #212121;
 
 // link
-$link: #1487bd;
+$link: #2196f3;
 $hover: darken($link, 10%);
 
 // border
-$border: #ddd;
+$border: #bdbdbd;
 
 // button
 $btn: #fff;
