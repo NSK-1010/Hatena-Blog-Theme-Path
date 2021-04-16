@@ -1,0 +1,2 @@
+# Hatena-Blog-Theme-Path
+ 
